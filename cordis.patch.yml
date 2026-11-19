@@ -1,0 +1,17 @@
+# Loader patch layer contributed by this bundle.
+#
+# Every value below is an ordinary plugin Config. Override any key from the
+# profile's own cordis.patch.yml: a row with the same id replaces this whole
+# config, so keep a complete object when you override it.
+- insert:
+    - id: ai-usage-monitor
+      name: dsh-ai-usage-monitor
+      config:
+        # Count a streamed attempt (assistant/attempt) as soon as its usage
+        # frame lands, instead of waiting for the assembled message. A later
+        # message for the same step replaces that sample, so no attempt is
+        # counted twice.
+        trackAttempts: true
+        # Bound the per-task rows a Session keeps for the panel. Oldest tasks
+        # are dropped first; session totals stay complete.
+        maxTurns: 200

@@ -1,0 +1,70 @@
+{
+  "name": "dsh-ai-usage-monitor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI Usage Monitor for DeepSeek Harness: live tokens, context headroom, per-call provider/model routing and estimated USD cost in a left-sidebar panel with a floating mini card and an English/Spanish toggle.",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "cordis",
+    "cordis-plugin",
+    "usage",
+    "tokens",
+    "cost",
+    "context",
+    "monitor",
+    "deepseek"
+  ],
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "src",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  },
+  "dependencies": {
+    "zod": "4.6.6"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "author": "Alejavi Rivera",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luciomerlo/dsh-ai-usage-monitor.git"
+  },
+  "homepage": "https://github.com/luciomerlo/dsh-ai-usage-monitor#readme",
+  "bugs": {
+    "url": "https://github.com/luciomerlo/dsh-ai-usage-monitor/issues"
+  }
+}
